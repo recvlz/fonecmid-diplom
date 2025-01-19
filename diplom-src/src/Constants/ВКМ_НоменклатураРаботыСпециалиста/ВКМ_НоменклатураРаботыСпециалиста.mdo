@@ -8,12 +8,13 @@
   <name>ВКМ_НоменклатураРаботыСпециалиста</name>
   <synonym>
     <key>ru</key>
-    <value>ВКМ номенклатура работы специалиста</value>
+    <value>Номенклатура работы специалиста (константа)</value>
   </synonym>
   <type>
     <types>CatalogRef.Номенклатура</types>
   </type>
   <useStandardCommands>true</useStandardCommands>
+  <defaultForm>CommonForm.ВКМ_ФормаКонстант</defaultForm>
   <minValue xsi:type="core:UndefinedValue"/>
   <maxValue xsi:type="core:UndefinedValue"/>
   <dataLockControlMode>Managed</dataLockControlMode>
