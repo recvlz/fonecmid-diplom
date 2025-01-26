@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="432e25a7-9639-4b64-a89b-ac3d255ae502">
+<mdclass:Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="432e25a7-9639-4b64-a89b-ac3d255ae502">
   <name>ВКМ_РасчетЗарплаты</name>
   <synonym>
     <key>ru</key>
-    <value>Расчет зарплаты</value>
+    <value>Расчет зарплаты (подсистема)</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
   <includeInCommandInterface>true</includeInCommandInterface>
+  <picture xsi:type="core:PictureRef">
+    <picture>CommonPicture.ОжидаемаяДлительнаяОперация48</picture>
+  </picture>
   <content>CalculationRegister.ВКМ_ОсновныеНачисления</content>
   <content>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления</content>
   <content>ChartOfCalculationTypes.ВКМ_ДополнительныеНачисления</content>
@@ -22,7 +25,10 @@
   <content>Document.ВКМ_НачисленияЗарплаты</content>
   <content>DataProcessor.ВКМ_ЗаполнениеГрафика</content>
   <content>InformationRegister.ВКМ_ГрафикиРаботы</content>
-  <content>Constant.ВКМ_ПроцентНДФЛ</content>
   <content>Document.ВКМ_ГрафикОтпусков</content>
   <content>Report.ВКМ_ВыработкаСпециалистов</content>
+  <content>Catalog.ВКМ_ГрафикиРаботы</content>
+  <content>Report.ВКМ_РасчетыССотрудниками</content>
+  <content>Report.ВКМ_РасходЗапланированныхОтпусков</content>
+  <content>CommonForm.ВКМ_КонстантыРасчетЗП</content>
 </mdclass:Subsystem>

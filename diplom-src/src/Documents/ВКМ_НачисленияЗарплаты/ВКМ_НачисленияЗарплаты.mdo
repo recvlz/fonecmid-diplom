@@ -10,7 +10,7 @@
   <name>ВКМ_НачисленияЗарплаты</name>
   <synonym>
     <key>ru</key>
-    <value>Начисления зарплаты</value>
+    <value>Начисления зарплаты (документ)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>Document.ВКМ_НачисленияЗарплаты.StandardAttribute.Number</inputByString>
@@ -27,6 +27,7 @@
   <registerRecords>CalculationRegister.ВКМ_ДополнительныеНачисления</registerRecords>
   <registerRecords>CalculationRegister.ВКМ_Удержания</registerRecords>
   <registerRecords>AccumulationRegister.ВКМ_ВзаиморасчетыССотрудниками</registerRecords>
+  <registerRecords>InformationRegister.ВКМ_ГрафикОтпусков</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
   <attributes uuid="c9342521-1c9e-48da-b538-0240a5a4c82d">

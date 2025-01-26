@@ -10,7 +10,7 @@
   <name>ВКМ_ГрафикиРаботы</name>
   <synonym>
     <key>ru</key>
-    <value>ГрафикиРаботы</value>
+    <value>ГрафикиРаботы (справочник)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>Catalog.ВКМ_ГрафикиРаботы.StandardAttribute.Code</inputByString>

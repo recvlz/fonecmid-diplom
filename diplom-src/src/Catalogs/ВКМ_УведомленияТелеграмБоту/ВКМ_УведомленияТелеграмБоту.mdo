@@ -10,7 +10,7 @@
   <name>ВКМ_УведомленияТелеграмБоту</name>
   <synonym>
     <key>ru</key>
-    <value>Уведомления телеграм боту</value>
+    <value>Уведомления телеграм боту (справочник)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>

@@ -12,12 +12,31 @@
   <name>ВКМ_ГрафикОтпусков</name>
   <synonym>
     <key>ru</key>
-    <value>График отпусков</value>
+    <value>График отпусков (регистр сведений)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <editType>InDialog</editType>
+  <informationRegisterPeriodicity>Year</informationRegisterPeriodicity>
   <writeMode>RecorderSubordinate</writeMode>
   <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="29bce16e-6569-489f-a5a5-8886cc633b77">
+    <name>Дней</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дней</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
   <dimensions uuid="86c4ac62-6ddc-4f33-b719-a35198efc6f5">
     <name>Сотрудник</name>
     <synonym>

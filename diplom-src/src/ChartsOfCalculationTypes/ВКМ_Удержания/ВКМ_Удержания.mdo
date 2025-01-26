@@ -16,7 +16,7 @@
   <name>ВКМ_Удержания</name>
   <synonym>
     <key>ru</key>
-    <value>Удержания</value>
+    <value>Удержания (план видов расчета)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>ChartOfCalculationTypes.ВКМ_Удержания.StandardAttribute.Code</inputByString>

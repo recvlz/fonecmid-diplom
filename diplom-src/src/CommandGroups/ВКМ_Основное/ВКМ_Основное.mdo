@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommandGroup xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="f396888a-3587-475e-b596-03055a8e978b">
+  <name>ВКМ_Основное</name>
+  <synonym>
+    <key>ru</key>
+    <value>Основное (группа команд)</value>
+  </synonym>
+  <representation>Auto</representation>
+</mdclass:CommandGroup>

@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="af70f968-5cc8-4b31-85bf-4cc456d71c19">
+<mdclass:Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="af70f968-5cc8-4b31-85bf-4cc456d71c19">
   <name>ВКМ_ДобавленныеОбъекты</name>
   <synonym>
     <key>ru</key>
-    <value>Добавленные объекты</value>
+    <value>Добавленные объекты (подсистема)</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
   <includeInCommandInterface>true</includeInCommandInterface>
+  <picture xsi:type="core:PictureRef">
+    <picture>StdPicture.DialogInformation</picture>
+  </picture>
   <content>Catalog.ВКМ_УведомленияТелеграмБоту</content>
   <content>Document.ВКМ_ОбслуживаниеКлиента</content>
-  <content>Constant.ВКМ_ТокенУправленияТелеграмБотом</content>
-  <content>Constant.ВКМ_ИдентификаторГруппыДляОповещения</content>
   <content>DataProcessor.ВКМ_МассовоеСозданиеАктов</content>
-  <content>Constant.ВКМ_НоменклатураАбонентскаяПлата</content>
-  <content>Constant.ВКМ_НоменклатураРаботыСпециалиста</content>
   <content>CalculationRegister.ВКМ_ОсновныеНачисления</content>
   <content>DataProcessor.ВКМ_ЗаполнениеГрафика</content>
   <content>InformationRegister.ВКМ_ГрафикиРаботы</content>
   <content>InformationRegister.ВКМ_УсловияОплатыСотрудников</content>
   <content>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления</content>
-  <content>Constant.ВКМ_ПроцентНДФЛ</content>
   <content>Document.ВКМ_НачислениеФиксированнойПремии</content>
   <content>Document.ВКМ_ВыплатаЗарплаты</content>
   <content>Document.ВКМ_ГрафикОтпусков</content>
   <content>Report.ВКМ_ВыработкаСпециалистов</content>
+  <content>ChartOfCalculationTypes.ВКМ_ДополнительныеНачисления</content>
+  <content>ChartOfCalculationTypes.ВКМ_Удержания</content>
+  <content>CalculationRegister.ВКМ_ДополнительныеНачисления</content>
+  <content>CalculationRegister.ВКМ_Удержания</content>
+  <content>Document.ВКМ_НачисленияЗарплаты</content>
+  <content>Catalog.ВКМ_ГрафикиРаботы</content>
+  <content>CommonForm.ВКМ_ФормаКонстант</content>
+  <content>Report.ВКМ_РасчетыССотрудниками</content>
+  <content>Report.ВКМ_РасходЗапланированныхОтпусков</content>
+  <content>Report.ВКМ_АнализВыставленныхАктов</content>
 </mdclass:Subsystem>

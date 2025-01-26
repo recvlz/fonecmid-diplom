@@ -16,7 +16,7 @@
   <name>ВКМ_ДополнительныеНачисления</name>
   <synonym>
     <key>ru</key>
-    <value>Дополнительные начисления</value>
+    <value>Дополнительные начисления (план видов расчета)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>ChartOfCalculationTypes.ВКМ_ДополнительныеНачисления.StandardAttribute.Code</inputByString>

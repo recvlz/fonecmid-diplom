@@ -8,7 +8,7 @@
   <name>ВКМ_ПроцентНДФЛ</name>
   <synonym>
     <key>ru</key>
-    <value>Процент НДФЛ</value>
+    <value>Процент НДФЛ (константа)</value>
   </synonym>
   <type>
     <types>Number</types>

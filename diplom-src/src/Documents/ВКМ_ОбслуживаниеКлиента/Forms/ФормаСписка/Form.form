@@ -579,6 +579,46 @@
         <textEdit>true</textEdit>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>Ответственный</name>
+      <id>78</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.Ответственный</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ОтветственныйРасширеннаяПодсказка</name>
+        <id>80</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ОтветственныйКонтекстноеМеню</name>
+        <id>79</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+      </extInfo>
+    </items>
     <commandBarLocation>None</commandBarLocation>
     <autoCommandBar>
       <name>СписокКоманднаяПанель</name>
@@ -739,29 +779,30 @@
     </notDefaultUseAlwaysAttributes>
     <main>true</main>
     <extInfo xsi:type="form:DynamicListExtInfo">
-      <queryText>ВЫБРАТЬ 
-       ВКМ_ОбслуживаниеКлиента.Ссылка, 
-       ВКМ_ОбслуживаниеКлиента.ПометкаУдаления, 
-       ВКМ_ОбслуживаниеКлиента.Номер, 
-       ВКМ_ОбслуживаниеКлиента.Дата, 
-       ВКМ_ОбслуживаниеКлиента.Проведен, 
-       ВКМ_ОбслуживаниеКлиента.Клиент, 
-       ВКМ_ОбслуживаниеКлиента.Договор, 
-       ВКМ_ОбслуживаниеКлиента.Специалист, 
-       ВКМ_ОбслуживаниеКлиента.ДатаПроведенияРабот, 
-       ВКМ_ОбслуживаниеКлиента.ВремяНачалаРабот, 
-       ВКМ_ОбслуживаниеКлиента.ВремяОкончанияРабот, 
-       ВКМ_ОбслуживаниеКлиента.ОписаниеПроблемы, 
-       ВКМ_ОбслуживаниеКлиента.Комментарий, 
-       ВКМ_ОбслуживаниеКлиента.ВыполненныеРаботы.*, 
-       ВКМ_ОбслуживаниеКлиента.МоментВремени,
-       ВЫБОР
+      <queryText>ВЫБРАТЬ
+	ВКМ_ОбслуживаниеКлиента.Ссылка,
+	ВКМ_ОбслуживаниеКлиента.ПометкаУдаления,
+	ВКМ_ОбслуживаниеКлиента.Номер,
+	ВКМ_ОбслуживаниеКлиента.Дата,
+	ВКМ_ОбслуживаниеКлиента.Проведен,
+	ВКМ_ОбслуживаниеКлиента.Клиент,
+	ВКМ_ОбслуживаниеКлиента.Договор,
+	ВКМ_ОбслуживаниеКлиента.Специалист,
+	ВКМ_ОбслуживаниеКлиента.ДатаПроведенияРабот,
+	ВКМ_ОбслуживаниеКлиента.ВремяНачалаРабот,
+	ВКМ_ОбслуживаниеКлиента.ВремяОкончанияРабот,
+	ВКМ_ОбслуживаниеКлиента.ОписаниеПроблемы,
+	ВКМ_ОбслуживаниеКлиента.Комментарий,
+	ВКМ_ОбслуживаниеКлиента.ВыполненныеРаботы.*,
+	ВКМ_ОбслуживаниеКлиента.МоментВремени,
+	ВЫБОР
 		КОГДА НаличиеФайлов.ЕстьФайлы ЕСТЬ NULL
 			ТОГДА 0
 		КОГДА НаличиеФайлов.ЕстьФайлы
 			ТОГДА 1
 		ИНАЧЕ 0
-	КОНЕЦ КАК ЕстьФайлы
+	КОНЕЦ КАК ЕстьФайлы,
+	ВКМ_ОбслуживаниеКлиента.Ответственный
 ИЗ
 	Документ.ВКМ_ОбслуживаниеКлиента КАК ВКМ_ОбслуживаниеКлиента
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НаличиеФайлов КАК НаличиеФайлов
@@ -860,6 +901,18 @@
             <content>
               <key>ru</key>
               <value>Есть файлы</value>
+            </content>
+          </localValue>
+        </title>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>Ответственный</dataPath>
+        <field>Ответственный</field>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Ответственный</value>
             </content>
           </localValue>
         </title>

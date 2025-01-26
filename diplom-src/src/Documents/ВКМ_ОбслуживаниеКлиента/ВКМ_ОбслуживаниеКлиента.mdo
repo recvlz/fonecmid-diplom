@@ -10,7 +10,7 @@
   <name>ВКМ_ОбслуживаниеКлиента</name>
   <synonym>
     <key>ru</key>
-    <value>Обслуживание клиента</value>
+    <value>Обслуживание клиента (документ)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>Document.ВКМ_ОбслуживаниеКлиента.StandardAttribute.Number</inputByString>
@@ -159,6 +159,21 @@
       <stringQualifiers/>
     </type>
     <multiLine>true</multiLine>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="fbdc1655-44bd-47cf-8ac8-370cd47b9d78">
+    <name>Ответственный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
     <fillValue xsi:type="core:UndefinedValue"/>
