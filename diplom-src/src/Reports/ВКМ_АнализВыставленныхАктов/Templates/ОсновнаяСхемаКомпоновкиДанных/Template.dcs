@@ -21,83 +21,86 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>АбонПлатаДолжноБыть</dataPath>
-			<field>АбонПлатаДолжноБыть</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Абон плата должно быть</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>РаботаСпецовДолжноБыть</dataPath>
-			<field>РаботаСпецовДолжноБыть</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Работа спецов должно быть</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаАбонплатаВыставлено</dataPath>
-			<field>СуммаАбонплатаВыставлено</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма абонплата выставлено</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>РаботаСпецовВыставлено</dataPath>
-			<field>РаботаСпецовВыставлено</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Работа спецов выставлено</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Контрагент</dataPath>
 			<field>Контрагент</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АбонплатаВыставлено</dataPath>
+			<field>АбонплатаВыставлено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Абонплата выставлено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РаботыСпецаДолжно</dataPath>
+			<field>РаботыСпецаДолжно</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работы спеца должно</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РаботыСпецаВыставлено</dataPath>
+			<field>РаботыСпецаВыставлено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работы спеца выставлено</v8:content>
+				</v8:item>
+			</title>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ВКМ_ВыполненныеКлиентуРаботыОбороты.Клиент,
-	ВКМ_ВыполненныеКлиентуРаботыОбороты.Договор,
-	ВКМ_ВыполненныеКлиентуРаботыОбороты.СуммаКОплатеОборот,
-	ВКМ_ВыполненныеКлиентуРаботыОбороты.Договор.ВКМ_АбонентскаяПлата
-ПОМЕСТИТЬ ВТ_Реальность
+	ВКМ_ВыполненныеКлиентуРаботыОбороты.Договор КАК Договор,
+	ВКМ_ВыполненныеКлиентуРаботыОбороты.Клиент КАК Контрагент,
+	СУММА(0) КАК АбонплатаВыставлено,
+	СУММА(ВКМ_ВыполненныеКлиентуРаботыОбороты.СуммаКОплатеОборот) КАК РаботыСпецаДолжно,
+	СУММА(0) КАК РаботыСпецаВыставлено
 ИЗ
-	РегистрНакопления.ВКМ_ВыполненныеКлиентуРаботы.Обороты КАК ВКМ_ВыполненныеКлиентуРаботыОбороты
-;
+	РегистрНакопления.ВКМ_ВыполненныеКлиентуРаботы.Обороты(&amp;НачалоПериода, &amp;КонецПериода,,) КАК
+		ВКМ_ВыполненныеКлиентуРаботыОбороты
+СГРУППИРОВАТЬ ПО
+	ВКМ_ВыполненныеКлиентуРаботыОбороты.Договор,
+	ВКМ_ВыполненныеКлиентуРаботыОбороты.Клиент
 
-////////////////////////////////////////////////////////////////////////////////
+ОБЪЕДИНИТЬ ВСЕ
+
 ВЫБРАТЬ
 	ВКМ_СтоимостьИТУслугОбороты.Договор,
-	ВКМ_СтоимостьИТУслугОбороты.СуммаАбонплатаОборот,
-	ВКМ_СтоимостьИТУслугОбороты.СуммаРаботыСпецаОборот
-ПОМЕСТИТЬ ВТ_Выставлено
+	ВКМ_СтоимостьИТУслугОбороты.Контрагент,
+	СУММА(ВКМ_СтоимостьИТУслугОбороты.СуммаАбонплатаОборот),
+	СУММА(0),
+	СУММА(ВКМ_СтоимостьИТУслугОбороты.СуммаРаботыСпецаОборот)
 ИЗ
-	РегистрНакопления.ВКМ_СтоимостьИТУслуг.Обороты КАК ВКМ_СтоимостьИТУслугОбороты
-;
-
-////////////////////////////////////////////////////////////////////////////////
-ВЫБРАТЬ
-	ВТ_Реальность.Клиент,
-	ВТ_Реальность.Договор,
-	ВТ_Реальность.ДоговорВКМ_АбонентскаяПлата КАК АбонПлатаДолжноБыть,
-	ВТ_Реальность.СуммаКОплатеОборот КАК РаботаСпецовДолжноБыть,
-	ВТ_Выставлено.СуммаАбонплатаОборот КАК СуммаАбонплатаВыставлено,
-	ВТ_Выставлено.СуммаРаботыСпецаОборот КАК РаботаСпецовВыставлено
-ИЗ
-	ВТ_Реальность КАК ВТ_Реальность
-		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Выставлено КАК ВТ_Выставлено
-		ПО ВТ_Реальность.Договор = ВТ_Выставлено.Договор</query>
+	РегистрНакопления.ВКМ_СтоимостьИТУслуг.Обороты(&amp;НачалоПериода, &amp;КонецПериода,,) КАК ВКМ_СтоимостьИТУслугОбороты
+СГРУППИРОВАТЬ ПО
+	ВКМ_СтоимостьИТУслугОбороты.Договор,
+	ВКМ_СтоимостьИТУслугОбороты.Контрагент</query>
 	</dataSet>
+	<totalField>
+		<dataPath>АбонплатаВыставлено</dataPath>
+		<expression>Сумма(АбонплатаВыставлено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РаботыСпецаВыставлено</dataPath>
+		<expression>Сумма(РаботыСпецаВыставлено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РаботыСпецаДолжно</dataPath>
+		<expression>Сумма(РаботыСпецаДолжно)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Контрагент</dataPath>
+		<expression>Контрагент</expression>
+	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
 		<title xsi:type="v8:LocalStringType">
@@ -130,7 +133,7 @@
 			</v8:DateQualifiers>
 		</valueType>
 		<useRestriction>true</useRestriction>
-		<expression>&amp;Период.ДатаОкончания</expression>
+		<expression>КонецПериода(&amp;Период.ДатаОкончания,"ДЕНЬ")</expression>
 	</parameter>
 	<parameter>
 		<name>Период</name>
@@ -157,44 +160,35 @@
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Клиент</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Договор</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>АбонПлатаДолжноБыть</dcsset:field>
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АбонплатаВыставлено</dcsset:field>
 					<dcsset:lwsTitle>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Абонплата (должно быть)</v8:content>
+							<v8:content>Абонплата выставлено</v8:content>
 						</v8:item>
 					</dcsset:lwsTitle>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>РаботаСпецовДолжноБыть</dcsset:field>
+					<dcsset:field>РаботыСпецаДолжно</dcsset:field>
 					<dcsset:lwsTitle>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Работа специалистов (должно быть)</v8:content>
+							<v8:content>Работы специалиста (должно)</v8:content>
 						</v8:item>
 					</dcsset:lwsTitle>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаАбонплатаВыставлено</dcsset:field>
+					<dcsset:field>РаботыСпецаВыставлено</dcsset:field>
 					<dcsset:lwsTitle>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Абонплата (выставлено)</v8:content>
-						</v8:item>
-					</dcsset:lwsTitle>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>РаботаСпецовВыставлено</dcsset:field>
-					<dcsset:lwsTitle>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Работа специалистов (выставлено)</v8:content>
+							<v8:content>Работы специалиста (выставлено)</v8:content>
 						</v8:item>
 					</dcsset:lwsTitle>
 				</dcsset:item>
@@ -208,6 +202,12 @@
 					<dcsset:userSettingID>d471210f-4b27-440d-b62e-a5d97e5b72ca</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Договор</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>МакетОформления</dcscor:parameter>
@@ -236,6 +236,13 @@
 				</dcscor:item>
 			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Договор</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+					</dcsset:item>
+				</dcsset:groupItems>
 				<dcsset:order>
 					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 				</dcsset:order>
