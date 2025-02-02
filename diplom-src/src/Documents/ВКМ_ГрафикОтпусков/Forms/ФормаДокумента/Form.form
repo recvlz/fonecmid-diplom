@@ -340,39 +340,6 @@
         <textEdit>true</textEdit>
       </extInfo>
     </items>
-    <items xsi:type="form:FormField">
-      <name>ОтпускаСотрудниковБолее28дней</name>
-      <id>43</id>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Объект.ОтпускаСотрудников.Более28дней</segments>
-      </dataPath>
-      <extendedTooltip>
-        <name>ОтпускаСотрудниковБолее28днейРасширеннаяПодсказка</name>
-        <id>45</id>
-        <type>Label</type>
-        <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
-        <extInfo xsi:type="form:LabelDecorationExtInfo">
-          <horizontalAlign>Left</horizontalAlign>
-        </extInfo>
-      </extendedTooltip>
-      <contextMenu>
-        <name>ОтпускаСотрудниковБолее28днейКонтекстноеМеню</name>
-        <id>44</id>
-        <autoFill>true</autoFill>
-      </contextMenu>
-      <type>CheckBoxField</type>
-      <editMode>Enter</editMode>
-      <showInHeader>true</showInHeader>
-      <headerHorizontalAlign>Left</headerHorizontalAlign>
-      <showInFooter>true</showInFooter>
-      <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
-    </items>
     <autoCommandBar>
       <name>ОтпускаСотрудниковКоманднаяПанель</name>
       <id>12</id>
@@ -404,10 +371,6 @@
       <horizontalAlign>Left</horizontalAlign>
       <autoFill>true</autoFill>
     </autoCommandBar>
-    <handlers>
-      <event>BeforeAddRow</event>
-      <name>ОтпускаСотрудниковПередНачаломДобавления</name>
-    </handlers>
     <handlers>
       <event>AfterDeleteRow</event>
       <name>ОтпускаСотрудниковПослеУдаления</name>
